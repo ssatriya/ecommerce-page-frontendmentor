@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+  <body>
+    <main class="container">
+      <nav class="nav">
+        <div class="nav__left">
+          <img src="./images/logo.svg" alt="Sneakers Logo" class="logo" />
+          <ul class="nav__primary">
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Man</a></li>
+            <li><a href="#">Woman</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav__right">
+          <div class="visible">
+            <img
+              src="./images/icon-cart.svg"
+              alt="Cart icon"
+              class="cart__icon"
+            />
+            <img src="./images/image-avatar.png" alt="Avatar" class="avatar" />
+          </div>
+          <div class="order__qt hidden">
+            <div class="qt__number"></div>
+          </div>
+        </div>
+        <div class="cart hidden">
+          <div class="cart__title">Cart</div>
+          <div class="cart__line"></div>
+          <div class="cart__main">
+            <div class="cart__content">
+              <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt="Thumbnail 1"
+                class="cart__img"
+              />
+              <div class="cart__info">
+                <div class="cart__product__title">
+                  Fall Limited Edition Sneakers
+                </div>
+                <div class="cart__product__price">
+                  $125.00 x 3 <span class="price__bold">$375.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="cart__delete">
+              <img src="./images/icon-delete.svg" alt="Cart delete" />
+            </div>
+          </div>
+          <button class="checkout">Checkout</button>
+        </div>
+      </nav>
+      <section class="product">
+        <div class="product__photos">
+          <img
+            src="./images/image-product-1.jpg"
+            alt="Main product"
+            class="photo__big"
+          />
+          <div class="product__thumbnails">
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="Thumbnail 1"
+              class="photo__small thumb-1"
+              data-thumb="1"
+            />
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt="Thumbnail 2"
+              class="photo__small thumb-2"
+              data-thumb="2"
+            />
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt="Thumbnail 3"
+              class="photo__small thumb-3"
+              data-thumb="3"
+            />
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt="Thumbnail 4"
+              class="photo__small thumb-4"
+              data-thumb="4"
+            />
+          </div>
+        </div>
+        <div class="product__details">
+          <div class="product__company">Sneaker Company</div>
+          <div class="product__title">
+            <h1>Fall Limited Edition Sneakers</h1>
+          </div>
+          <div class="product__description">
+            <p>
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they'll withstand
+              everything the weather can offer.
+            </p>
+          </div>
+          <div class="product__price">
+            <div class="promo">
+              <div class="discount__price">$125.00</div>
+              <div class="discount__percent">50%</div>
+            </div>
+            <div class="original__price">$250.00</div>
+          </div>
+          <div class="product__order">
+            <div class="product__quantity">
+              <!-- <button class="quantity__icon" data-qt="">
+                <img src="./images/icon-minus.svg" alt="Minus icon" />
+              </button>
+              <div class="quantity"><div class="qnumber">0</div></div>
+              <button class="quantity__icon" data-qt="">
+                <img src="./images/icon-plus.svg" alt="Plus icon" />
+              </button> -->
+            </div>
+            <button type="submit" class="add__to__cart">
+              <img
+                src="./images/icon-cart.svg"
+                alt="Add to cart icon"
+                class="btn__cart__icon"
+              />
+              Add to cart
+            </button>
+          </div>
+        </div>
+        <div class="overlay hidden">
+          <div class="lightbox">
+            <div class="lightbox__main">
+              <button data-lightbox="" class="lightbox__btn btn-prev">
+                <img
+                  src="./images/icon-previous.svg"
+                  alt="icon prev"
+                  class="lightbox__icon__btn"
+                />
+              </button>
+              <img
+                src="./images/image-product-2.jpg"
+                alt="Thumbnail"
+                class="main__lightbox"
+              />
+              <button data-lightbox="" class="lightbox__btn btn-next">
+                <img
+                  src="./images/icon-next.svg"
+                  alt="icon next"
+                  class="lightbox__icon__btn"
+                />
+              </button>
+            </div>
+            <div class="lightbox__thumbnails">
+              <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt=""
+                class="thumb__lightbox tl-1"
+                data-thumb="1"
+              />
+              <img
+                src="./images/image-product-2-thumbnail.jpg"
+                alt=""
+                class="thumb__lightbox tl-2"
+                data-thumb="2"
+              />
+              <img
+                src="./images/image-product-3-thumbnail.jpg"
+                alt=""
+                class="thumb__lightbox tl-3"
+                data-thumb="3"
+              />
+              <img
+                src="./images/image-product-4-thumbnail.jpg"
+                alt=""
+                class="thumb__lightbox tl-4"
+                data-thumb="4"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </footer>
+  </body>
+</html>
