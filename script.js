@@ -175,7 +175,6 @@ lightboxMain.addEventListener("click", function (e) {
   const btn = e.target.closest(".lightbox__btn");
   if (!btn) return;
 
-  console.log("before if" + curImg);
   if (btn.classList.contains("btn-next") && curImg < 4) {
     ++curImg;
     mainImgLightbox.src = `./images/image-product-${curImg}.jpg`;
@@ -186,8 +185,6 @@ lightboxMain.addEventListener("click", function (e) {
       .querySelector(`.light-${curImg}`)
       .querySelector(".light__overlay")
       .classList.add("active");
-
-    console.log("in if" + curImg);
   }
 
   if (btn.classList.contains("btn-prev") && curImg > 1) {
