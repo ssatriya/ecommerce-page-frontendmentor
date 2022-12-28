@@ -157,6 +157,8 @@ lightboxParent.addEventListener("click", function (e) {
 
   const dataThumb = +currThumbLightbox.dataset.thumb;
 
+  curImg = dataThumb;
+
   mainImgLightbox.src = `./images/image-product-${dataThumb}.jpg`;
 
   lightboxOverlay.forEach((lo) => lo.classList.remove("active"));
@@ -171,9 +173,11 @@ const lightboxMain = document.querySelector(".lightbox__main");
 
 lightboxMain.addEventListener("click", function (e) {
   const btn = e.target.closest(".lightbox__btn");
+  s;
   if (!btn) return;
 
-  if (btn.classList.contains("btn-next") && curImg < maxImg) {
+  console.log("before if" + curImg);
+  if (btn.classList.contains("btn-next") && curImg < 4) {
     ++curImg;
     mainImgLightbox.src = `./images/image-product-${curImg}.jpg`;
 
@@ -183,6 +187,8 @@ lightboxMain.addEventListener("click", function (e) {
       .querySelector(`.light-${curImg}`)
       .querySelector(".light__overlay")
       .classList.add("active");
+
+    console.log("in if" + curImg);
   }
 
   if (btn.classList.contains("btn-prev") && curImg > 1) {
