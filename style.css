@@ -246,21 +246,62 @@ img.avatar:hover {
   opacity: 0.7;
 }
 
+.thumbnails {
+  position: relative;
+}
+
 .photo__small {
+  /* position: absolute; */
   width: 7rem;
   /* width: 100%; */
   border-radius: 8px;
   cursor: pointer;
 }
 
-.photo__small.active {
+.lighttest {
+  position: relative;
+}
+
+.thumb__overlay {
+  display: none;
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  opacity: 0.8;
+  /* transition: all 0.5s; */
+}
+
+.thumb__overlay.active {
+  display: block;
+}
+
+.light__overlay {
+  display: none;
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  opacity: 0.8;
+  /* transition: all 0.5s; */
+}
+
+.light__overlay.active {
+  display: block;
+}
+
+/* .photo__small.active {
   opacity: 0.7;
   outline: 2px solid var(--orange);
 }
 .thumb__lightbox.active {
   opacity: 0.7;
   outline: 2px solid var(--orange);
-}
+} */
 
 .photo__small:hover {
   opacity: 0.7;
