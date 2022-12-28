@@ -173,7 +173,6 @@ const lightboxMain = document.querySelector(".lightbox__main");
 
 lightboxMain.addEventListener("click", function (e) {
   const btn = e.target.closest(".lightbox__btn");
-  s;
   if (!btn) return;
 
   console.log("before if" + curImg);
