@@ -106,40 +106,53 @@ let curImg = 1;
 let maxImg = 4;
 
 // Change the main image with thumbnail click
-photoParent.addEventListener("click", function (e) {
-  const thumbnail = e.target.closest(".photo__small");
-  if (!thumbnail) return;
+const changeMainImage = function () {
+  photoParent.addEventListener("click", function (e) {
+    const thumbnail = e.target.closest(".photo__small");
+    if (!thumbnail) return;
 
-  const dataThumb = +thumbnail.dataset.thumb;
+    const dataThumb = +thumbnail.dataset.thumb;
 
-  curImg = dataThumb;
-  mainPhoto.src = `./images/image-product-${dataThumb}.jpg`;
+    curImg = dataThumb;
+    mainPhoto.src = `./images/image-product-${dataThumb}.jpg`;
 
-  mainThumbOverlay.forEach((ps) => ps.classList.remove("active"));
-  document
-    .querySelector(`.thumb-${curImg}`)
-    .querySelector(".thumb__overlay")
-    .classList.add("active");
-});
+    mainThumbOverlay.forEach((ps) => ps.classList.remove("active"));
+    document
+      .querySelector(`.thumb-${curImg}`)
+      .querySelector(".thumb__overlay")
+      .classList.add("active");
+  });
+};
+changeMainImage();
 
 const overlay = document.querySelector(".overlay");
 const mainImgLightbox = document.querySelector(".main__lightbox");
 const lightboxOverlay = document.querySelectorAll(".light__overlay");
 
-// Click main photo an open a lightbox
-mainPhoto.addEventListener("click", function (e) {
-  const curMainImg = e.target.src;
-  if (!curMainImg) return;
-  mainImgLightbox.src = curMainImg;
+const clickOnMainImage = function (e) {
+  // Click main photo an open a lightbox
+  mainPhoto.addEventListener("click", function (e) {
+    const curMainImg = e.target.src;
+    if (!curMainImg) return;
+    mainImgLightbox.src = curMainImg;
 
-  console.log(curImg);
+    console.log(curImg);
 
-  lightboxOverlay.forEach((lo) => lo.classList.remove("active"));
-  document
-    .querySelector(`.light-${curImg}`)
-    .querySelector(".light__overlay")
-    .classList.add("active");
-  overlay.classList.toggle("hidden");
+    lightboxOverlay.forEach((lo) => lo.classList.remove("active"));
+    document
+      .querySelector(`.light-${curImg}`)
+      .querySelector(".light__overlay")
+      .classList.add("active");
+    overlay.classList.toggle("hidden");
+  });
+};
+
+// When seen on mobile
+
+window.addEventListener("load", function (e) {
+  const screenWidth = screen.width;
+  if (screenWidth < 376) return;
+  else clickOnMainImage();
 });
 
 overlay.addEventListener("click", function (e) {
@@ -197,5 +210,23 @@ lightboxMain.addEventListener("click", function (e) {
       .querySelector(`.light-${curImg}`)
       .querySelector(".light__overlay")
       .classList.add("active");
+  }
+});
+
+// Mobile button
+const mainPhotoBtnParent = document.querySelector(".main__photo");
+
+mainPhotoBtnParent.addEventListener("click", function (e) {
+  const btn = e.target.closest(".mobile__btn");
+  if (!btn) return;
+
+  if (btn.classList.contains("btn-next") && curImg < 4) {
+    ++curImg;
+    mainPhoto.src = `./images/image-product-${curImg}.jpg`;
+  }
+
+  if (btn.classList.contains("btn-prev") && curImg > 1) {
+    --curImg;
+    mainPhoto.src = `./images/image-product-${curImg}.jpg`;
   }
 });
