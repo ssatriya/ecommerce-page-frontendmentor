@@ -1,3 +1,3 @@
 # Frontend Mentor - E-commerce product page
 
-![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
+Live Site URL: [Ecommerce product page](https://ecomprodpage-frontendmentor.netlify.app/)
